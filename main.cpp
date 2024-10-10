@@ -19,12 +19,12 @@ public:
         prices[i] = (rand() % (MAX-MIN+1) + MIN) / (double) 100;    // randomly select prices from $100.00 to $999.99
                                                                     // (including dollars & cents)
     }
-
+                 // an array of 3 doubles (the prices)
     Chair(int l, double p[SIZE]) {  // parameter constructor
         prices = new double[SIZE];
         legs = l;
         for (int i = 0; i < SIZE; i++)
-        prices[i] = 0;
+        prices[i] = p[i];
     }
 
     // setters and getters
@@ -57,8 +57,8 @@ int main() {
 
     //creating pointer to first chair object
     Chair *chairPtr = new Chair;
-    chairPtr->setLegs(4);
-    chairPtr->setPrices(121.21, 232.32, 414.14);
+    //chairPtr->setLegs(4);
+    //chairPtr->setPrices(121.21, 232.32, 414.14);
     chairPtr->print();
 
     //creating dynamic chair object with constructor
