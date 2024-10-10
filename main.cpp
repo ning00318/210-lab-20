@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>  // rand()
 using namespace std;
 
 const int SIZE = 3;
@@ -13,12 +14,13 @@ public:
     // constructors
     Chair() {       // default constructor
         prices = new double[SIZE];
-        legs = 0;
+        legs = (rand() % (4-3+1) + 3);      // randomly select 3 or 4 legs
         for (int i = 0; i < SIZE; i++)
-        prices[i] = (rand() % (MAX-MIN+1) + MIN) / (double) 100;
+        prices[i] = (rand() % (MAX-MIN+1) + MIN) / (double) 100;    // randomly select prices from $100.00 to $999.99
+                                                                    // (including dollars & cents)
     }
 
-    Chair(int l) {  // parameter constructor
+    Chair(int l, double p[SIZE]) {  // parameter constructor
         prices = new double[SIZE];
         legs = l;
         for (int i = 0; i < SIZE; i++)
